@@ -27,7 +27,7 @@ const showingNavigationDropdown = ref(false);
                             </div>
 
                             <!-- Navigation Links -->
-                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <div class="hidden space-x-1 sm:-my-px sm:ms-10 sm:flex">
                                 <TopNavbar /> 
                             </div>
                         </div>
@@ -124,10 +124,10 @@ const showingNavigationDropdown = ref(false);
                 </div>
             </nav>
             <div class=" flex-grow flex flex-start">
-                <SidebarNavbar />
-                <main>
-                    <slot />
-                </main>
+                <div><SidebarNavbar /></div>
+                <div class="p-6">
+                    <slot name="main" />
+                </div>
             </div>
 
         </div>

@@ -3,16 +3,16 @@
         Dashboard
     </NavLink>
     <NavLink  v-for="nav in navbar" :key="nav.id"
-    :href="route(`${nav}`)" :active="route().current(`${nav}`)">
+    :href="route(`${nav}.index`)" :active="route().current(nav + '.index')">
         {{ nav }}
     </NavLink>
 </template>
 
 <script setup>
-import { inject } from 'vue';
 import NavLink from './NavLink.vue';
+import store from '@/store';
 
-const navbar = inject('navbar');
+const navbar = store.state.data;
 
 
 </script>

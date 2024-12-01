@@ -1,11 +1,9 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
-import { provide, reactive } from 'vue';
 
-const navbar = reactive([]);
 
-provide('navbar', navbar);
+
 
 </script>
 
@@ -13,7 +11,9 @@ provide('navbar', navbar);
     <Head title="Dashboard" />
 
     <AuthenticatedLayout>
-
+        <template #main>
+            <h1>Dashboard</h1>
+        </template>
         
     </AuthenticatedLayout>
 </template>
