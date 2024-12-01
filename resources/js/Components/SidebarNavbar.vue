@@ -3,18 +3,20 @@
    <div class="h-full pl-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
       <ul class="space-y-2 font-medium">
          <li>
-            <a @click="openNavbar('users')"
-            href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <Link @click="openNavbar('users')"
+            :href="route('users')" 
+            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                <PeopleIcon />
                <span class="flex-1 ms-3 whitespace-nowrap">Users</span>
-            </a>
+            </Link>
          </li>
          <li>
-            <a @click="openNavbar('products')"
-            href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <Link @click="openNavbar('products')"
+            :href="route('products')" 
+            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                <BagIcon />
                <span class="flex-1 ms-3 whitespace-nowrap">Products</span>
-            </a>
+            </Link>
          </li>
       </ul>
    </div>
@@ -26,7 +28,8 @@
 <script setup>
 import BagIcon from '@/Icons/BagIcon.vue';
 import PeopleIcon from '@/Icons/PeopleIcon.vue';
-import { inject, provide, reactive, ref } from 'vue';
+import { inject} from 'vue';
+import { Link } from '@inertiajs/vue3';
 
 const navbar = inject('navbar');
 

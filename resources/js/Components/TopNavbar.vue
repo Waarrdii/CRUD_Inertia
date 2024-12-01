@@ -2,7 +2,8 @@
     <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
         Dashboard
     </NavLink>
-    <NavLink v-for="nav in navbar" :key="nav.id" >
+    <NavLink  v-for="nav in navbar" :key="nav.id"
+    :href="route(`${nav}`)" :active="route().current(`${nav}`)">
         {{ nav }}
     </NavLink>
 </template>
