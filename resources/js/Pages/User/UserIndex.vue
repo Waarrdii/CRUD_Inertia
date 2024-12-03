@@ -7,28 +7,37 @@
                 </li>
             </ul>
 
-            <PrimaryButton @click="$inertia.visit(route('users.create'))" class="mt-4">register</PrimaryButton>
+            <Link 
+            @click="updateData('create')"
+            :href="route('users.create')" 
+            class="inline-flex items-center rounded-md border border-transparent bg-gray-800 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white transition duration-150 ease-in-out hover:bg-gray-700 focus:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 active:bg-gray-900 mt-4">
+            register
+            </Link>
         </template>
     </AuthenticatedLayout>
     
 </template>
 
 <script setup>
-import store from '@/store';
+
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { onMounted } from 'vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
+import store from '@/store';
+import { Link } from '@inertiajs/vue3';
 
 const props = defineProps({
     users: Array
 })
 
 
-const navbar = store.state.data;
+const updateData = (key)=>{
+    const data = {
+        id : 'tab1',
+        data : {}
+    }
+    store.dispatch('updateComponent', {key, data});
+}
 
-onMounted(() => {
-    console.log(store.state.data);
-})
+
 </script>
 
 <style lang="scss" scoped>

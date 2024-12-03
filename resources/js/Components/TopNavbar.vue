@@ -2,17 +2,29 @@
     <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
         Dashboard
     </NavLink>
-    <NavLink  v-for="nav in navbar" :key="nav.id"
-    :href="route(`${nav}.index`)" :active="route().current(nav + '.index')">
-        {{ nav }}
+    <NavLink 
+    @click="activateNavbar(item)"
+    :href="route(NavbarData[item].routeName)" :active="activeNavbar === item" v-for="item in (Object.keys(NavbarData))" :key="item.id">
+        {{ item }}
     </NavLink>
 </template>
 
 <script setup>
-import NavLink from './NavLink.vue';
-import store from '@/store';
 
-const navbar = store.state.data;
+import store from '@/store';
+import { onMounted, reactive } from 'vue';
+import NavLink from './NavLink.vue';
+
+const NavbarData = reactive(store.state.data);
+const activeNavbar = store.state.activeNavbar;
+
+const activateNavbar = (item) => {
+    store.dispatch('setActiveNavbar', item);
+}
+
+onMounted(() => {
+    console.log(NavbarData);
+})
 
 
 </script>

@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import {  ref } from 'vue';
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
@@ -9,7 +9,9 @@ import SidebarNavbar from '@/Components/SidebarNavbar.vue';
 import TopNavbar from '@/Components/TopNavbar.vue';
 import ComponentNavbar from '@/Components/ComponentNavbar.vue';
 
+
 const showingNavigationDropdown = ref(false);
+
 </script>
 
 <template>
@@ -126,7 +128,7 @@ const showingNavigationDropdown = ref(false);
             </nav>
             <div class=" flex-grow flex flex-start">
                 <div><SidebarNavbar /></div>
-                <div class="p-6">
+                <div class="p-6 w-full">
                     <ComponentNavbar/>
                     <slot name="main" />
                 </div>

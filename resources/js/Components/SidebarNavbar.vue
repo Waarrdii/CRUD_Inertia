@@ -28,20 +28,24 @@
 <script setup>
 import BagIcon from '@/Icons/BagIcon.vue';
 import PeopleIcon from '@/Icons/PeopleIcon.vue';
-import { reactive} from 'vue';
 import { Link } from '@inertiajs/vue3';
 import { useStore } from 'vuex';
 
 const store = useStore();
 
-const navbar = reactive(store.state.data);
-
 const openNavbar = (newItem) => {
-   if(navbar.includes(newItem)) {
-      return
-   } else {
-      store.dispatch('addNewData', newItem);
+   const NavbarData = {
+      routeName: newItem + '.index',
+      components : {
+         'index' : {
+            routeName: newItem + '.index',
+            data: {}
+         }
+      },
+      name: newItem
    }
+ store.dispatch('addNewData', {key: newItem, data: NavbarData});
+ store.dispatch('setActiveNavbar', newItem);      
 }
 
 </script>

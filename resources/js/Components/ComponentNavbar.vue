@@ -1,15 +1,16 @@
 <template>
-    <Link v-if="ComponentNavbar"
-    :href="route('dashboard')" >
+    <div class="w-full flex flex-start space-x-1 capitalize border-b mb-5">
+        <nav v-for="item in (Object.keys(NavbarData))" :key="item.id">{{ item }} <span>/</span></nav>
         
-    </Link>
+    </div>
+    
 </template>
 
 <script setup>
-import {Link} from '@inertiajs/vue3';
 import store from '@/store';
 
-const ComponentNavbar = store.state.Components;
+const activeNavbar = store.state.activeNavbar;
+const NavbarData = store.state.data[activeNavbar] ? store.state.data[activeNavbar].components : {};
 
 
 </script>
