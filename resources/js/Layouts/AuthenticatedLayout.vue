@@ -7,6 +7,7 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import { Link } from '@inertiajs/vue3';
 import SidebarNavbar from '@/Components/SidebarNavbar.vue';
 import TopNavbar from '@/Components/TopNavbar.vue';
+import ComponentNavbar from '@/Components/ComponentNavbar.vue';
 
 const showingNavigationDropdown = ref(false);
 </script>
@@ -126,6 +127,7 @@ const showingNavigationDropdown = ref(false);
             <div class=" flex-grow flex flex-start">
                 <div><SidebarNavbar /></div>
                 <div class="p-6">
+                    <ComponentNavbar/>
                     <slot name="main" />
                 </div>
             </div>
