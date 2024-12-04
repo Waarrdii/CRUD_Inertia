@@ -39,6 +39,9 @@ const store = createStore({
         }
     },
     getters: {
+        userData(state) {
+            return state.data
+        },
         userComponents(state) {
             return state.data[state.activeNavbar].components
         }

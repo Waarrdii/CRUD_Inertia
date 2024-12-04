@@ -31,6 +31,7 @@ const props = defineProps({
 
 const updateData = (key)=>{
     const data = {
+        routeName : 'users.create',
         id : 'tab1',
         data : {}
     }
